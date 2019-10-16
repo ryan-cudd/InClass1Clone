@@ -31,21 +31,28 @@ public class StudentTest {
 		Student secondStudent = new Student("x", "Y", 3);
 		
 		int actual = secondStudent.compareTo(firstStudent);
-		int expected = 1;
 		
-		assertEquals(expected, actual);
+		boolean result = false;
+		
+		//should be greater than 0
+		if (actual > 0) 
+			result = true;
+		assertTrue(result);
 		
 		Student student = new Student("x", "Y", 5);
 		
-		expected = -1;
+		result = false;
+		//should be less than 0
 		actual = secondStudent.compareTo(student);
+		if (actual < 0)
+			result = true;
+		assertTrue(result);
+
+		Student studentSame = new Student("x", "Y", 5);
+		actual = studentSame.compareTo(student);
+		//should be zero
+		int expected = 0;
 		assertEquals(expected, actual);
-
-
-		
-		
-		
-
 
 	}
 	
